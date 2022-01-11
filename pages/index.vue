@@ -1,5 +1,9 @@
 <template>
-  <Flights />
+  <div>
+    <Header />
+    <Flights />
+    <Footerme />
+  </div>
 </template>
 
 <script>
