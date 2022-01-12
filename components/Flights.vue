@@ -1,17 +1,8 @@
 <template>
-    <div class="spacex-flights container">
-     
-     <!--TODO: Make a Filter Component -->
-      <div class="text-center">
-        <!-- TODO: Better Explanation text to display-->
-        <span class=""> Welcome to the SpaceX flights, Here you can find out which flight was when</span>
-        <br>
-        <span> Enter name or date to get specific information: </span>
-        <br>
-        <input type="text"  v-model="search" />
-      </div>
+    <div id="listing" class="spacex-flights container">
+            <filtering :getDataFiltered="myFun"/>
 
-      <div v-if="filteredList.length == 0"><p> No flights found </p></div>
+<div v-if="filteredList.length == 0 || filteredList === undifined"><p> No flights found </p></div>
     
      <div else>
         <ul>
@@ -37,45 +28,32 @@
 </template>
 
 <script>
+import filtering from "./Filtering.vue"
+
+
 export default {
   name: 'Flights',
-  props: ['Flights_filtered'],
   data(){
     return {
-      flights: [],
-      search: ''
-    }
-  },
-  created() { //When document is creating call api. 
-    this.getSpaceXdata()
-  },
-  methods: {
-    //add all flights to variable from newest to oldest
-    //TODO: Add Api call to diffrent component with error checks.
-    async getSpaceXdata(){
-          this.flights = await fetch('https://api.spacexdata.com/v4/launches/').then(res => res.json())
-          this.flights.reverse()
+       filteredList: []
+     }
     },
+  methods: {
     //Formatting data to look readable for visiters
     dataTime(data){
       var day = data.split("T")
       var time = day[1].substring(0, 5)
       return day[0] + " -  UTC: " + time 
     },
-  },
-  computed: {
-    //search function for flight and date. IDEA: Filter with checkboxes 
-      filteredList() {
-        return this.flights.filter(flight => {
-          return (
-            flight.name.toLowerCase().includes(this.search.toLowerCase()) || 
-            flight.date_utc.toLowerCase().includes(this.search.toLowerCase())
-          )
-        })
-      }
+    // Get data from filtered.vue and store in new local variable
+    myFun(dat){
+      this.filteredList = dat
     }
+  },
+  components : { 
+        filtering 
+    },
 }
-
 </script>
 
 <style>

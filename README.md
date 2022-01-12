@@ -1,5 +1,9 @@
 # spacex-dashboard
-# SpaceX flights overview with added search.
+SpaceX flights overview with added search.
+ADD: Future flights
+ADD: SECOND api Call? 
+ADD: 
+
 
 ## Build Setup
 
