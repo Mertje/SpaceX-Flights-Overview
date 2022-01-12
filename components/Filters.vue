@@ -14,7 +14,7 @@
 import fetching from "./Fetching.vue";
 
 export default {
-  name: "filtering",
+  name: "filters",
   data() {
     return {
       search: "",

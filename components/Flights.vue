@@ -1,6 +1,6 @@
 <template>
     <div id="listing" class="spacex-flights container">
-            <filtering :getDataFiltered="myFun"/>
+            <filters :getDataFiltered="myFun"/>
 
 <div v-if="filteredList.length == 0 || filteredList === undifined"><p> No flights found </p></div>
     
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import filtering from "./Filtering.vue"
+import filters from "./Filters.vue"
 
 
 export default {
@@ -51,7 +51,7 @@ export default {
     }
   },
   components : { 
-        filtering 
+        filters 
     },
 }
 </script>
