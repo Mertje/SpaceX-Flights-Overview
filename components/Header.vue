@@ -13,18 +13,3 @@ export default {
   name: 'Header'
 }
 </script>
-
-<style>
- .headers img{
-     width: 80px ;
-     height: auto;
-     display:block;
-     margin:auto;
-
- }
- .headers{
-     padding-bottom: 2rem;
-     background-color: black;
- }
-
-</style>

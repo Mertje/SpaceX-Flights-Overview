@@ -55,18 +55,3 @@ export default {
     },
 }
 </script>
-
-<style>
- /* Simple styling. TODO: Add style to global style list  */
-  .spacex-flights li {
-    background-color: #eee;
-  }
-  .spacex-flights ul {
-    list-style-type: none;
-  }
-  .spacex-flights img {
-    max-width: 200px;
-    height: fit-content;
-  }
-  /* TODO: Better styling, looks like 90s website*/ 
-</style>

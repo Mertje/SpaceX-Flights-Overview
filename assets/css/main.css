@@ -1,0 +1,29 @@
+/* Simple styling. TODO: Add style to global style list  */
+ .spacex-flights li {
+   background-color: #eee;
+ }
+ .spacex-flights ul {
+   list-style-type: none;
+ }
+ .spacex-flights img {
+   max-width: 200px;
+   height: fit-content;
+ }
+ .footer-me div{
+     background-color: black;
+     color: white;
+ }
+ .footer-me h1{
+     padding: 100px;
+ }
+ .headers img{
+     width: 80px ;
+     height: auto;
+     display:block;
+     margin:auto;
+
+ }
+ .headers{
+     padding-bottom: 2rem;
+     background-color: black;
+ }

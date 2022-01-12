@@ -7,19 +7,8 @@
     </div>    
 </template>
 
-
 <script>
 export default {
   name: 'Footerme'
 }
 </script>
-
-<style>
- .footer-me div{
-     background-color: black;
-     color: white;
- }
- .footer-me h1{
-     padding: 100px;
- }
-</style>
