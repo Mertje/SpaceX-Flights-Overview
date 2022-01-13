@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <Filters />
     <Flights />
     <Footerme />
   </div>

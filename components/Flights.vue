@@ -1,57 +1,39 @@
 <template>
-    <div id="listing" class="spacex-flights container">
-            <filters :getDataFiltered="myFun"/>
+  <div id="listing" class="spacex-flights container">
+    <div else>
+      <ul>
+        <!-- IDEA: add diffrent color to not launched one  -->
+        <li class="my-4" v-for="flight in this.$store.state.apiCall.filteredList" :key="flight.id">
+          <div class="d-flex">
+            <!-- Backup img for if api can't find one -->
+            <img :src="flight.links.patch.small ? flight.links.patch.small: '/spaceX.jpeg'":alt="flight.name" />
 
-<div v-if="filteredList.length == 0 || filteredList === undifined"><p> No flights found </p></div>
-    
-     <div else>
-        <ul>
-          <!-- IDEA: add diffrent color to not launched one  -->
-         <li class="my-4" v-for="flight in filteredList" :key="flight.id" >
-           <div class="d-flex">
-             <!-- Backup img for if api can't find one -->
-             <img :src="flight.links.patch.small ? flight.links.patch.small : '/spaceX.jpeg' " :alt="flight.name" />
-              
-              <div>
-                <p>Name Rocket: {{flight.name}}</p>
-                <p>Flight time {{ dataTime(flight.date_utc) }}</p>
-                <!-- IDEA: Add collapse with more information -->
-                <p>Information: {{flight.details || " No information"}}</p>
-              </div>
-
+            <div>
+              <p>Name Rocket: {{ flight.name }}</p>
+              <p>Flight time {{ dataTime(flight.date_utc) }}</p>
+              <!-- IDEA: Add collapse with more information -->
+              <p>Information: {{ flight.details || " No information" }}</p>
             </div>
-            </li>
-       </ul>
-     </div>
-
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 
 <script>
-import filters from "./Filters.vue"
-
-
 export default {
-  name: 'Flights',
-  data(){
-    return {
-       filteredList: []
-     }
-    },
+  name: "flights",
+  data() {
+    return {};
+  },
   methods: {
     //Formatting data to look readable for visiters
-    dataTime(data){
-      var day = data.split("T")
-      var time = day[1].substring(0, 5)
-      return day[0] + " -  UTC: " + time 
+    dataTime(data) {
+      var day = data.split("T");
+      var time = day[1].substring(0, 5);
+      return day[0] + " -  UTC: " + time;
     },
-    // Get data from filtered.vue and store in new local variable
-    myFun(dat){
-      this.filteredList = dat
-    }
   },
-  components : { 
-        filters 
-    },
-}
+};
 </script>

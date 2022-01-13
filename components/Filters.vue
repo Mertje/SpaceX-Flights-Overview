@@ -1,9 +1,5 @@
 <template>
   <div class="text-center">
-    <!-- Sending fuction to Fetching.vue to recieve API data -->
-    <fetching :getData="getFlights" />
-    <!-- Sending Filtered information To Flights.vue -->
-    {{ getDataFiltered(filteredList) }}
     <span> Enter name or date to get specific information: </span>
     <br />
     <input type="text" v-model="search" />
@@ -11,36 +7,29 @@
 </template>
 
 <script>
-import fetching from "./Fetching.vue";
-
 export default {
   name: "filters",
   data() {
     return {
       search: "",
-      completelist: [],
     };
   },
-  components: {
-    fetching,
-  },
-  props: {
-    getDataFiltered: Function,
-  },
-  methods: {
-    //Get Flights from API Call and store intor new variable
-    getFlights(flight) {
-      this.completelist = flight;
-    },
+  fetch() {
+      this.$store.dispatch("apiCall/getSpaceXdata", { self: this });
   },
   computed: {
     filteredList() {
-      return this.completelist.filter((flight) => {
+      return this.$store.state.apiCall.allFlights.filter((flight) => {
         return (
           flight.name.toLowerCase().includes(this.search.toLowerCase()) ||
           flight.date_utc.toLowerCase().includes(this.search.toLowerCase())
         );
       });
+    },
+  },
+  watch: {
+    filteredList: function(value) {
+      this.$store.commit('apiCall/FETCH_FILTEREDFLIGHTS', value)
     },
   },
 };
