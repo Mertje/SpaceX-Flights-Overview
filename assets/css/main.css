@@ -1,6 +1,6 @@
-/* Simple styling. TODO: Add style to global style list  */
  .spacex-flights li {
    background-color: #eee;
+   border-radius: 20px;;
  }
  .spacex-flights ul {
    list-style-type: none;
@@ -8,6 +8,13 @@
  .spacex-flights img {
    max-width: 200px;
    height: fit-content;
+ }
+ .spacex-flights .older {
+   background-color: #00000061;
+   border-radius: 20px;
+ }
+ .spacex-flights .older p {
+    color: #ffffff;
  }
  .footer-me div{
      background-color: black;

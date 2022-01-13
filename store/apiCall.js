@@ -4,9 +4,11 @@ export const state = () => ({
 });
 
 export const mutations = {
+  //API fetched data stored
   FETCH_FLIGHTS(state, allF) {
     state.allFlights = allF;
   },
+  //Filtered data stored
   FETCH_FILTEREDFLIGHTS(state, filF){
     state.filteredList = filF;
   }
