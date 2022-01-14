@@ -4,6 +4,7 @@
     <br />
     <input class="rounded" type="text" v-model="search" placeholder="Search" />
     <br />
+    <!-- Better view off the total in array  -->
     <span>Total results: {{ filteredList.length }} </span>
   </div>
 </template>
@@ -17,9 +18,11 @@ export default {
     };
   },
   fetch() {
+    //doule API call. Calling launces and rockets
     this.$store.dispatch("apiCall/getSpaceXdata", { self: this });
   },
   computed: {
+    //realtime filtering input box
     filteredList() {
       return this.$store.state.apiCall.allFlights.filter((flight) => {
         return (

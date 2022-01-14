@@ -9,6 +9,7 @@
             <p class="head-text"> 
               <span> Flight ID: {{ flight.id }} </span>
               <br>
+              <!-- Function makes the data look more readable for humans -->
               <span> Launch Date/Time: {{ dataTime(flight.date_utc) }} </span>
             </p>
             <div>
@@ -48,7 +49,7 @@ export default {
   data() {
     return {
       oldLaunces: false,
-      //Calling this inside for statement
+      //Calling this inside v-for statement
       that: this,
     };
   },
@@ -59,13 +60,14 @@ export default {
       var time = day[1].substring(0, 5);
       return day[0] + " -  UTC: " + time;
     },
-    //Show older data onclick
+    //Show or hide older data onclick
     getOlderLaunches(){
       this.oldLaunces = !this.oldLaunces
       this.oldLaunces ? this.hideOrShow("d-flex", "d-none") : this.hideOrShow("d-none", "d-flex") ;
     },
     hideOrShow(addclass, removeclass){
       const olderlist = document.getElementsByClassName("older")
+      //looping through every older array to add or remove class
       for (let i = 0; i < olderlist.length; i++) {
           olderlist[i].classList.add(addclass);
           olderlist[i].classList.remove(removeclass);
