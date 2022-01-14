@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       search: "",
-      that: this,
+      that: this
     };
   },
   fetch() {
@@ -23,20 +23,21 @@ export default {
     this.$store.dispatch("getSpaceXdata", { self: this });
   },
   computed: {
-    //get Id by rocket name
+    //get id from name inserting
     getFlightSearch() {
       return this.$store.state.rocketslist.filter((space) => {
-        return space.name.toLowerCase().includes(this.search.toLowerCase());
+        return space.name.toLowerCase().includes(this.search.toLowerCase())
+      }).map(names => {
+        return names.id
       });
     },
     //realtime filtering input box
     filteredList() {
       return this.$store.state.allFlights.filter((flight) => {
         return (
-          flight.date_utc.toLowerCase().includes(this.search.toLowerCase()) ||
-          flight.id.toLowerCase().includes(this.search.toLowerCase()) ||
+          flight.date_utc.toLowerCase().includes(this.search.toLowerCase())  ||
           flight.name.toLowerCase().includes(this.search.toLowerCase()) ||
-          flight.rocket.toLowerCase().includes(this.getFlightSearch[0].id)
+          this.getFlightSearch.includes(flight.rocket.toLowerCase())
         );
       });
     },

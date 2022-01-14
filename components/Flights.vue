@@ -7,7 +7,7 @@
           <img :src="flight.links.patch.small ? flight.links.patch.small: '/spaceX.jpeg'" :alt="flight.name" />
           <div class="pl-3 py-2 w-100">
             <p class="head-text"> 
-              <span>Flight ID: {{ flight.id }} </span>
+              <span>Flight Name: {{ flight.name }} </span>
               <br>
               <!-- Function makes the data look more readable for humans -->
               <span>Launch Date/Time: {{ dataTime(flight.date_utc) }} </span>

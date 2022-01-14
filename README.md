@@ -23,6 +23,7 @@ $ npm run dev
 2. Separate page for each launch with indepth information.
 3. Cashing Filtered information.
 4. Find alternative for hiding and showing older launch data
+5. Faster way to filter through data
 
 ## API comments
 1. Flights between 150 and 158 are missing.
