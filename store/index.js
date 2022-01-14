@@ -1,22 +1,22 @@
 export const state = () => ({
   allFlights: [],
   filteredList: [],
-  rocketslist: [],
+  rocketslist: []
 });
 
 export const mutations = {
   //API fetched data stored
-  FETCH_FLIGHTS(state, allF) {
-    state.allFlights = allF;
+  FETCH_FLIGHTS(state, allApiFlights) {
+    state.allFlights = allApiFlights;
   },
   //Filtered data stored
-  FETCH_FILTEREDFLIGHTS(state, filF) {
-    state.filteredList = filF;
+  FETCH_FILTEREDFLIGHTS(state, allFilteredFlights) {
+    state.filteredList = allFilteredFlights;
   },
   //API rocket data fetched
-  FETCH_ROCKETS(state, rocF) {
-    state.rocketslist = rocF;
-  },
+  FETCH_ROCKETS(state, allApiRockets) {
+    state.rocketslist = allApiRockets;
+  }
 };
 
 export const actions = {
@@ -32,5 +32,5 @@ export const actions = {
     commit("FETCH_FLIGHTS", respLaunches);
     //Coomit Data to state
     commit("FETCH_ROCKETS", respRockets);
-  },
+  }
 };

@@ -2,7 +2,7 @@
   <div class="text-center mt-3">
     <span> Enter name or date to get specific information: </span>
     <br />
-    <input class="rounded" type="text" v-model="search" placeholder="Search" />
+    <input class="rounded my-2" type="text" v-model="search" placeholder="Search" />
     <br />
     <!-- Better view off the total in array  -->
     <span>Total results: {{ filteredList.length }} </span>
@@ -14,17 +14,17 @@ export default {
   name: "filters",
   data() {
     return {
-      search: "",
+      search: ""
     };
   },
   fetch() {
     //doule API call. Calling launces and rockets
-    this.$store.dispatch("apiCall/getSpaceXdata", { self: this });
+    this.$store.dispatch("getSpaceXdata", { self: this });
   },
   computed: {
     //realtime filtering input box
     filteredList() {
-      return this.$store.state.apiCall.allFlights.filter((flight) => {
+      return this.$store.state.allFlights.filter((flight) => {
         return (
           flight.date_utc.toLowerCase().includes(this.search.toLowerCase()) ||
           flight.id.toLowerCase().includes(this.search.toLowerCase()) ||
@@ -34,10 +34,10 @@ export default {
     },
   },
   watch: {
-    //Store filtered data back in to apiCall.js
+    //Store filtered data back in to index.js
     filteredList: function (value) {
-      this.$store.commit("apiCall/FETCH_FILTEREDFLIGHTS", value.reverse());
+      this.$store.commit("FETCH_FILTEREDFLIGHTS", value.reverse());
     },
-  },
+  }
 };
 </script>

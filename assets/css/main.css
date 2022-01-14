@@ -1,38 +1,37 @@
- .spacex-flights li {
-   background-color: #eee;
-   border-radius: 20px;;
- }
- .spacex-flights .folded-information {
-   background-color: unset;
- }
- .spacex-flights ul {
-   list-style-type: none;
- }
- .spacex-flights img {
-   max-width: 200px;
-   height: fit-content;
- }
- .spacex-flights .older {
-   background-color: #00000061;
-   border-radius: 20px;
- }
- .spacex-flights .older .head-text {
-    color: #ffffff;
- }
- .footer-me div{
-     background-color: black;
-     color: white;
- }
- .footer-me h1{
-     padding: 100px;
- }
- .headers img{
-     width: 80px ;
-     height: auto;
-     display:block;
-     margin:auto;
- }
- .headers{
-     padding-bottom: 2rem;
-     background-color: black;
- }
+.spacex-flights li {
+  background-color: #eee;
+  border-radius: 20px;
+}
+.spacex-flights .folded-information {
+  background-color: unset;
+}
+.spacex-flights ul {
+  list-style-type: none;
+}
+.spacex-flights img {
+  max-width: 200px;
+  height: fit-content;
+}
+.spacex-flights .older {
+  background-color: rgb(133 133 133 / 38%);
+}
+.spacex-flights .older .head-text {
+  color: #ffffff;
+}
+.footer-me div {
+  background-color: black;
+  color: white;
+}
+.footer-me h1 {
+  padding: 100px;
+}
+.headers img {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.headers {
+  padding-bottom: 2rem;
+  background-color: black;
+}
