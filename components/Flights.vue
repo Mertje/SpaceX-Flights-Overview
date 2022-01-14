@@ -1,19 +1,19 @@
 <template>
   <div id="listing" class="spacex-flights container">
-    <ul id="flights" >
+    <ul id="flights">
       <li class="my-4" v-for="flight in this.$store.state.filteredList" :key="flight.id">
         <div style="border-radius: 20px; overflow:hidden;" :class="(flight.upcoming) ? 'd-flex':'d-none older'">
           <!-- Backup img for if api can't find one -->
           <img :src="flight.links.patch.small ? flight.links.patch.small: '/spaceX.jpeg'" :alt="flight.name" />
-          <div class="pl-3 pt-2">
+          <div class="pl-3 py-2 w-100">
             <p class="head-text"> 
-              <span> Flight ID: {{ flight.id }} </span>
+              <span>Flight ID: {{ flight.id }} </span>
               <br>
               <!-- Function makes the data look more readable for humans -->
-              <span> Launch Date/Time: {{ dataTime(flight.date_utc) }} </span>
+              <span>Launch Date/Time: {{ dataTime(flight.date_utc) }} </span>
             </p>
             <div>
-              <b-button v-b-toggle="flight.id" variant="btn btn-outline-primary">Get more information</b-button>
+              <b-button v-b-toggle="flight.id" variant="btn btn-outline-primary">Get more information </b-button>
               <b-collapse :id="flight.id" class="my-2 mr-3">
                 <b-card>
                   <!-- upcoming flights adding more information about the rocket -->
@@ -29,7 +29,7 @@
                         <br/>
                         <span>Name Rocket: {{rockets.name}} </span>
                       </p>
-                      <p> {{ flight.details || "No detail is known about the launch" }}</p>
+                      <p>{{ flight.details || "No detail is known about the launch" }} </p>
                     </div>
                   </li>
                 </b-card>
@@ -38,7 +38,7 @@
           </div>
         </div>
       </li>
-      <button class="btn btn-primary d-block my-0 mx-auto" @click="getOlderLaunches" type="button">More / Less information</button>
+      <button class="btn btn-primary d-block my-0 mx-auto" @click="getOlderLaunches" type="button">More / Less information </button>
     </ul>
   </div>
 </template>
