@@ -6,18 +6,31 @@
           <!-- Backup img for if api can't find one -->
           <img :src="flight.links.patch.small ? flight.links.patch.small: '/spaceX.jpeg'" :alt="flight.name" />
           <div class="pl-3 pt-2">
-            <p> 
-              <span> Name flight: {{ flight.name }} </span>
+            <p class="head-text"> 
+              <span> Flight ID: {{ flight.id }} </span>
               <br>
-              <span> Name Rocket: {{ flight.rocket }} </span>
-              <br>
-              <span> Launch time {{ dataTime(flight.date_utc) }} </span>
+              <span> Launch Date/Time: {{ dataTime(flight.date_utc) }} </span>
             </p>
             <div>
               <b-button v-b-toggle="flight.id" variant="primary">Get more information</b-button>
-              <b-collapse :id="flight.id" class="my-2 ">
+              <b-collapse :id="flight.id" class="my-2 mr-3">
                 <b-card>
-                  <p class="card-text">{{ flight.details || "No information is known" }}</p>
+                  <!-- upcoming flights adding more information about the rocket -->
+                  <li class="folded-information" v-for="rockets in that.$store.state.apiCall.rocketslist" :key="rockets.id">
+                    <div v-if="rockets.id === flight.rocket">
+                      <img class="img-fluid" :src="rockets.flickr_images[0]" alt="" />
+                      <p> 
+                        <span>Flight upcoming: {{flight.upcoming}} </span>
+                        <br/>
+                        <span>Flight Number: {{flight.flight_number}} </span>
+                        <br/>
+                        <span>Name Project: {{flight.name}} </span>
+                        <br/>
+                        <span>Name Rocket: {{rockets.name}} </span>
+                      </p>
+                      <p> {{ flight.details || "No detail is known about the launch" }}</p>
+                    </div>
+                  </li>
                 </b-card>
               </b-collapse>
             </div>
@@ -34,7 +47,9 @@ export default {
   name: "flights",
   data() {
     return {
-      oldLaunces: false
+      oldLaunces: false,
+      //Calling this inside for statement
+      that: this,
     };
   },
   methods: {

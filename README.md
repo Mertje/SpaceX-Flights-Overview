@@ -17,7 +17,11 @@ $ npm install
 $ npm run dev
 ```
 
+## TODO
+1. Mobile responsive suppport
+3. Styling and adding more information
+2. Separate page for each launch with indepth information
 
-
-
-
+## API comments
+1. Flights between 150 to 158 are missing.
+2. Flight number 147 is an upcoming launch but the launch date is in the past.

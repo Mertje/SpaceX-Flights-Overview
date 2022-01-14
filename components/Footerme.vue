@@ -1,10 +1,9 @@
-<!-- TODO: Footer With credits -->
 <template>
-    <div class="container-fluid footer-me">
-        <div class="row justify-content-center">
-            <h1> Created by Mertje </h1>
+    <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; Blank </small>
         </div>
-    </div>    
+    </footer>
 </template>
 
 <script>
